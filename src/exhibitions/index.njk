@@ -1,0 +1,48 @@
+---
+pagination:
+    data: exhibitions
+    size: 1
+    alias: exhibition
+    addAllPagesToCollections: true
+tags: exhibitions
+templateEngineOverride: njk
+permalink: "exhibitions/exhibition-{{ pagination.pageNumber }}/index.html"
+---
+{% extends "layouts/base.njk" %}
+  {% block content %}
+      <div class="exhibition__page">
+        {% for key, exhi in exhibition %}
+            <div class="swiper" aria-label="works from">
+                <div class="images swiper-wrapper">
+                    <!-- Slide start -->
+                        {% for ex in exhi %}
+                            {%  if ex.class === "Image" %}
+                                <div class="image swiper-slide">
+                                    {% image ex.title, ex.image.large.url, ex.title %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    <!-- Slide end -->
+                </div>
+                <div class="page-controls">
+                    <div class="swiper-pagination"></div>
+                    <div class="slider-controls">
+                        <div class="swiper-button-prev slider-arrow"> prev </div>
+                        <div class="swiper-button-next slider-arrow"> next </div>
+                    </div>
+                </div>
+            </div>
+            {% for ex in exhi %}
+                {%  if ex.class === "Text" %}
+                    <div class="press">
+                            <article>
+                                <h2>Press Release</h2>
+                                {{ ex.content_html | safe }}
+                            </article>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+      </div>
+  {% endblock %}
+

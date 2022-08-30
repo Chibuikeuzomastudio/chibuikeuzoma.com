@@ -1,0 +1,39 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-block: var(--padding-s);
+  background: var(--bg-color);
+  padding-inline: var(--padding-m);
+  z-index: 100;
+  @media screen and (max-width: 40em) {
+    padding-inline: var(--padding-s);
+  }
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    .info {
+      #info__btn {
+        cursor: pointer;
+      }
+      #info__details {
+        p {
+          padding-block: calc(var(--padding-s) / 2)
+        }
+      }
+    }
+    .cv {
+      text-align: right;
+      #cv__btn {
+        cursor: context-menu;
+        h1 {
+          &.over {
+            font-weight: normal;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+main {
+  .main__wrapper {
+    .exhibition__page {
+      padding-top: var(--padding-m);
+      columns: 2;
+      height: 90%;
+      @media screen and (max-width: 60em)  {
+        columns: 1;
+        height: auto;
+        padding-bottom: calc(var(--padding-m) * 2);
+      }
+
+      & > * {
+        display: block;
+        width: 100%;
+      }
+
+      .swiper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 40em)  {
+          width: 100%;
+        }
+        .images.swiper-wrapper {
+          height:90%;
+          //height: auto;
+          .swiper-slide {
+            width: 100%;
+            //height: fit-content;
+            img {
+              object-position: top left;
+              display: block;
+              max-width: 100%;
+              max-height: 100%;
+              min-width: 100%;
+              min-height: 100%;
+              height: 100% !important;
+              object-fit: contain;
+            }
+          }
+        }
+
+        .page-controls {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          padding-top: var(--padding-s);
+
+          .slider-controls {
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            cursor: pointer;
+            width: auto;
+            display: flex;
+            gap: 2rem;
+            top: 50%;
+            left: 0;
+          }
+        }
+      }
+
+      .press {
+        @media screen and (max-width: 60em)  {
+          margin-top: 2rem;
+          padding-bottom: var(--padding-m);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,203 @@
+main {
+  --exhibition-space: calc(var(--padding-s) / 1.4);
+  flex-grow: 1;
+  //height: auto;
+  height: calc(var(--vh) - 10vh);
+  overflow-y: hidden;
+  @media screen and (max-width: 60em) {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .main__wrapper {
+    height: inherit;
+    position: relative;
+    @media screen and (max-width: 60em) {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      display: block;
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+      &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+    }
+
+    .home {
+      height: inherit;
+
+      .wrapper {
+        columns: 3;
+        height: inherit;
+        @media screen and (max-width: 60em) {
+          columns: 1;
+        }
+
+        .col {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          padding-top: 0.25rem;
+
+          &.first {
+            //background: aquamarine;
+            #bio {
+              display: flex;
+              gap: 0.5rem;
+
+              @media screen and (max-width: 60em) {
+                flex-direction: column;
+              }
+
+              .profile {
+                img {
+                  max-width: 100px;
+                }
+              }
+            }
+
+            .mobile__content {
+              display: none;
+              @media screen and (max-width: 60em) {
+                display: flex;
+              }
+              padding-block: var(--padding-s);
+              flex-direction: column;
+              gap: var(--padding-s);
+
+              .archive__container {
+                padding-block-start: var(--exhibition-space);
+
+                .exhibition {
+                  a {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid var(--primary-color);
+                    margin-bottom: var(--exhibition-space);
+
+                    p {
+                      margin: 0;
+                      padding: 0;
+                    }
+                  }
+                }
+              }
+
+              .btn.mobile {
+                display: flex;
+                gap: calc(var(--padding-s) / 2);
+              }
+            }
+          }
+
+          &.second {
+            //background: antiquewhite;
+            @media screen and (max-width: 60em) {
+              display: none;
+            }
+
+            #dear__audience {
+              //color: teal;
+            }
+          }
+
+          &.third {
+            @media screen and (max-width: 60em) {
+              display: none;
+            }
+
+            #archive {
+              .archive__container {
+                .exhibition {
+                  a {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid var(--primary-color);
+                    margin-bottom: var(--exhibition-space);
+                    p {
+                      margin: 0;
+                      padding: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .col__wrapper {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            display: block;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+              display: none; /* Chrome, Safari, Opera */
+            }
+
+            .flex__height {
+              width: 100%;
+              height: 20rem;
+            }
+
+            .artworks {
+              width: 100%;
+              height: auto;
+              padding-top: var(--padding-m);
+              padding-bottom: calc(var(--padding-m) * 2);
+              &[data-mobile] {
+                display: none;
+              }
+
+              @media screen and (max-width: 60em) {
+                &[data-desktop] {
+                  display: none;
+                }
+                &[data-mobile] {
+                  display: block;
+                }
+              }
+
+
+              .work__wrapper {
+                width: inherit;
+                margin-bottom: var(--padding-s);
+
+                .work {
+                  margin-inline: auto;
+                  width: 100%;
+                  max-height: 25rem;
+                  overflow: hidden;
+                  cursor: pointer;
+
+                  img {
+                    height: inherit;
+                    object-fit: cover;
+                    transition: all 0.5s cubic-bezier(0.61, -0.01, 0.36, 0.99);
+                    @media screen and (max-width: 60em) {
+                      height: 100%;
+                      object-fit: contain;
+                    }
+                  }
+
+                  &:hover + .caption {
+                    visibility: visible;
+                  }
+                }
+
+                .caption {
+                  padding-top: calc(var(--padding-s) / 2);
+                  visibility: hidden;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

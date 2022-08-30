@@ -1,0 +1,35 @@
+<header>
+    <div class="head {{  'exhibit' if '/exhibitions' in page.url }}" >
+        <div class="page__title">
+            <div id="bio__btn" class="btn">
+                {% if page.url == '/'%}
+                <h1>
+                    {{ site.name }}
+                </h1>
+                {% else %}
+                    <a href="/">
+                        <h1>
+                            {{ site.name }}
+                        </h1>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        {% if page.url == '/'%}
+            <div class="page__da">
+                <div id="da__btn" class="btn">
+                    <h1>
+                        dear audience
+                    </h1>
+                </div>
+            </div>
+            <div class="page page_archive">
+                <div id="archive__btn" class="btn">
+                    <h1>
+                        Archive
+                    </h1>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</header>

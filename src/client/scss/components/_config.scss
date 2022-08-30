@@ -1,0 +1,9 @@
+:root {
+  --vh: 100vh;
+  --primary-color: #181818;
+  --bg-color: #fefefe;
+  --fh-height: 5vh;
+  --body-height: calc(100vh - var(--fh-height));
+  --padding-m: 3rem;
+  --padding-s: 1rem;
+}

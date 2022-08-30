@@ -1,0 +1,31 @@
+header {
+  .head {
+    //display: flex;
+    //justify-content: space-between;
+    height: fit-content;
+    columns: 3;
+    padding-block: calc(var(--padding-s)/2);
+    @media screen and (max-width: 60em)  {
+      columns: 1;
+      text-align: left;
+      .page_archive, .page__da{
+        display: none;
+      }
+    }
+    & > div:last-child {
+      text-align: right;
+    }
+    &.exhibit{
+      columns: 2;
+      & > div:last-child {
+        text-align: left;
+      }
+      @media screen and (max-width: 60em) {
+        columns: 1;
+        .page__pr{
+          display: none;
+        }
+      }
+    }
+  }
+}

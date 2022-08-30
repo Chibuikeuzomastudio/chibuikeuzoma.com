@@ -1,0 +1,24 @@
+<div class="mobile__content">
+    <div class="da__mobile">
+        <div id="da__btn__mobile" class="btn mobile">
+            <span>▸</span>
+            <h1>
+                dear audience
+            </h1>
+        </div>
+        <div id="dear__audience__mobile" hide>
+            {{ content['dear audience']['data'] | safe }}
+        </div>
+    </div>
+    <div class="a__mobile">
+        <div id="archive__btn__mobile" class="btn mobile">
+            <span>▸</span>
+            <h1>
+                Archive
+            </h1>
+        </div>
+        <div id="archive__mobile" hide>
+            {% include "partials/archive.njk" %}
+        </div>
+    </div>
+</div>

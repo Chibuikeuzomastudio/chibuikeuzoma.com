@@ -1,0 +1,89 @@
+{% set lenArtworks = artworks | arrayChunks(3) %}
+
+{% extends "layouts/base.njk" %}
+  {% block content %}
+      <div class="home">
+          {% include "partials/image-modal.njk" %}
+          <div class="wrapper">
+              <div class="col first">
+                  <div class="col__wrapper">
+                      <div id="bio">
+                          <div class="profile">
+                              <img src="/assets/images/chi.jpg" alt="self portrait">
+                          </div>
+                          <div class="content">
+                              {{ content['bio']['data'] | safe }}
+                          </div>
+                      </div>
+                      {% include "partials/mobile-home.njk" %}
+                      <div class="flex__height" hide></div>
+                      <div class="artworks" data-desktop>
+                          {%- for work in lenArtworks[0] -%}
+                              <div class="work__wrapper">
+                                  <div class="work">
+                                      {% image work.title, work.image.large, work.title %}
+                                  </div>
+                                  <div class="caption">
+                                      <p>{{ work.title }}</p>
+                                  </div>
+                              </div>
+                          {%- endfor -%}
+                      </div>
+                      <div class="artworks" data-mobile>
+                          {%- for work in artworks -%}
+                              <div class="work__wrapper">
+                                  <div class="work">
+                                      {% image work.title, work.image.large, work.title %}
+                                  </div>
+                                  <div class="caption">
+                                      <p>{{ work.title }}</p>
+                                  </div>
+                              </div>
+                          {%- endfor -%}
+                      </div>
+
+                  </div>
+              </div>
+              <div class="col second">
+                  <div class="col__wrapper">
+                      <div id="dear__audience">
+                          {{ content['dear audience']['data'] | safe }}
+                      </div>
+                      <div class="flex__height"></div>
+                      <div class="artworks">
+                          {% for work in lenArtworks[1] %}
+                              <div class="work__wrapper">
+                                  <div class="work">
+                                      {% image work.title, work.image.large, work.title %}
+                                  </div>
+                                  <div class="caption">
+                                      <p>{{ work.title }}</p>
+                                  </div>
+                              </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+              <div class="col third">
+                  <div class="col__wrapper">
+                      <div id="archive">
+                          {% include "partials/archive.njk" %}
+                      </div>
+                      <div class="flex__height"></div>
+                      <div class="artworks">
+                          {% for work in lenArtworks[2] %}
+                              <div class="work__wrapper">
+                                  <div class="work">
+                                      {% image work.title, work.image.large, work.title %}
+                                  </div>
+                                  <div class="caption">
+                                      <p>{{ work.title }}</p>
+                                  </div>
+                              </div>
+                          {% endfor %}
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  {% endblock %}

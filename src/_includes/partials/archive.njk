@@ -1,0 +1,9 @@
+<div class="archive__container">
+    {% for exhi in collections.exhibitions %}
+        <div class="exhibition">
+            <a href="{{ exhi.url }}">
+                {% exhibition exhi.data.key %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
