@@ -10,7 +10,7 @@ main {
   }
 
   .main__wrapper {
-    height: inherit;
+    height: 100%;
     position: relative;
     @media screen and (max-width: 60em) {
       width: 100%;
@@ -33,6 +33,7 @@ main {
         @media screen and (max-width: 60em) {
           columns: 1;
         }
+
 
         .col {
           width: 100%;
@@ -124,6 +125,8 @@ main {
               }
             }
           }
+
+
 
           .col__wrapper {
             width: 100%;

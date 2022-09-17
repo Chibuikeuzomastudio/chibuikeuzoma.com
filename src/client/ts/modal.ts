@@ -45,9 +45,10 @@ const handleModal = function () {
       let capModal = modal!.querySelector(
         ".m__caption p"
       ) as HTMLParagraphElement | null;
-      modal!.removeAttribute("hide");
+
       imgModal!.src = src || "";
       capModal!.textContent = capWork!.textContent;
+      modal!.removeAttribute("hide");
 
     });
   });

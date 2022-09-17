@@ -12,7 +12,7 @@ async function imageShortcode(name, src, alt) {
     let imageAttributes = {
         alt,
         sizes: '100%',
-        loading: "lazy",
+        // loading: "lazy",
         decoding: "async",
     };
 

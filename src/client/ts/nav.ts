@@ -9,7 +9,6 @@ const toggleInfo = function () {
   infoDetails?.toggleAttribute("hide");
 }
 
-
 const handleInfo = function () {
   const infoButton = document.getElementById(
     "info__btn"
@@ -27,49 +26,28 @@ const handleYear = function () {
 
 const handleCV = function () {
   const cv = document.getElementById("cv__btn") as HTMLDivElement | null;
+  const eventStart = ["mouseenter", "touchstart"]
+  const eventEnd = ["mouseleave", "touchend"]
   const cvTextContainer = document.querySelector(
     "#cv__btn h1"
   ) as HTMLHeadingElement | null;
-  cv?.addEventListener("mouseenter", function () {
-    if (!cvTextContainer) return;
-    cvTextContainer!.textContent = "Upon request";
-    cvTextContainer!.classList.add("over")
-  });
-  cv?.addEventListener("mouseleave", function () {
-    if (!cvTextContainer) return;
-    cvTextContainer!.textContent = "CV";
-    cvTextContainer!.classList.remove("over")
-  });
+  eventStart.forEach(event => {
+    cv?.addEventListener(event, function () {
+      if (!cvTextContainer) return;
+      cvTextContainer!.textContent = "Upon request";
+      cvTextContainer!.classList.add("over")
+    });
+  })
+  eventEnd.forEach(event => {
+    cv?.addEventListener(event, function () {
+      if (!cvTextContainer) return;
+      cvTextContainer!.textContent = "CV";
+      cvTextContainer!.classList.remove("over")
+    });
+  })
 };
 
 // Header
-interface FlexReturn {
-  hide: {
-    (position?: string ): void;
-  };
-}
-
-const flexHeight = function (): FlexReturn {
-  const flexDivs = document.querySelectorAll(
-    ".flex__height"
-  ) as NodeListOf<HTMLDivElement> | null;
-  flexDivs?.forEach(function (flexDiv) {
-    const randomHeight: number = Math.random() * 5;
-    if (!flexDiv) return;
-    flexDiv!.style.height = `${randomHeight}rem`;
-  });
-  return {
-    hide: function (position?: string) {
-      if (!position) return
-      flexDivs?.forEach(function (flexDiv) {
-        if (!flexDiv) return;
-        const parent = flexDiv?.parentNode?.parentNode as HTMLDivElement;
-        if (parent?.classList.contains(position))
-          flexDiv?.toggleAttribute("hide");
-      });
-    },
-  };
-};
 
 const scrollToTopCol = function (position?: string) {
   if(!position) return
@@ -80,7 +58,6 @@ const scrollToTopCol = function (position?: string) {
 };
 
 const handleHeader = function () {
-  const flexDivs = flexHeight();
   const buttonMap: IButtonMap[] = [
     {
       id: "bio__btn",
@@ -116,7 +93,6 @@ const handleHeader = function () {
 
     btnEl?.addEventListener("click", function () {
       contentEl?.toggleAttribute("hide");
-      btn?.position || flexDivs.hide(btn?.position);
       !contentEl?.hasAttribute("hide") ? scrollToTopCol(btn?.position) : null;
       hideModal();
     });

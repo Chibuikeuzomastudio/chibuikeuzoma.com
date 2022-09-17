@@ -1,4 +1,4 @@
-{% set lenArtworks = artworks | arrayChunks(3) %}
+{% set lenArtworks = artworks | arrayChunks %}
 
 {% extends "layouts/base.njk" %}
   {% block content %}
@@ -16,7 +16,6 @@
                           </div>
                       </div>
                       {% include "partials/mobile-home.njk" %}
-                      <div class="flex__height" hide></div>
                       <div class="artworks" data-desktop>
                           {%- for work in lenArtworks[0] -%}
                               <div class="work__wrapper">
@@ -49,7 +48,6 @@
                       <div id="dear__audience">
                           {{ content['dear audience']['data'] | safe }}
                       </div>
-                      <div class="flex__height"></div>
                       <div class="artworks">
                           {% for work in lenArtworks[1] %}
                               <div class="work__wrapper">
@@ -67,9 +65,8 @@
               <div class="col third">
                   <div class="col__wrapper">
                       <div id="archive">
-                          {% include "partials/archive.njk" %}
+{#                          {% include "partials/archive.njk" %}#}
                       </div>
-                      <div class="flex__height"></div>
                       <div class="artworks">
                           {% for work in lenArtworks[2] %}
                               <div class="work__wrapper">

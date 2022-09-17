@@ -5,6 +5,12 @@ header {
     height: fit-content;
     columns: 3;
     padding-block: calc(var(--padding-s)/2);
+
+    //Archive deactivated
+    #archive__btn, #archive__btn__mobile {
+      cursor: not-allowed;
+    }
+
     @media screen and (max-width: 60em)  {
       columns: 1;
       text-align: left;

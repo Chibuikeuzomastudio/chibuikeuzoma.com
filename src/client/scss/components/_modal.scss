@@ -3,6 +3,7 @@
   position: absolute;
   inset: 0;
   background: var(--bg-color);
+
   .modal__container {
     padding-top: var(--padding-m);
     width: 100%;
@@ -19,11 +20,12 @@
       @media screen and (max-width: 40em)  {
         max-width: 100%;
         //height: fit-content;
+        padding-bottom: calc(var(--padding-m) * 2);
+
       }
       .m__img {
         width: fit-content;
         height: inherit;
-        background: antiquewhite;
         img {
           //max-width: 100%;
           max-height: 70vh;
@@ -35,11 +37,12 @@
             max-width: 100%;
             min-height: 100%;
             max-height: 100%;
+
           }
         }
       }
       .m__caption {
-        width: 60%;
+        width: 80%;
         padding-block: calc(var(--padding-s) / 2);
       }
     }

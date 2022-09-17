@@ -27,8 +27,8 @@ permalink: "exhibitions/exhibition-{{ pagination.pageNumber }}/index.html"
                 <div class="page-controls">
                     <div class="swiper-pagination"></div>
                     <div class="slider-controls">
-                        <div class="swiper-button-prev slider-arrow"> prev </div>
-                        <div class="swiper-button-next slider-arrow"> next </div>
+                        <div class="swiper-button-prev slider-arrow"> <p>prev</p> </div>
+                        <div class="swiper-button-next slider-arrow"> <p>next</p>  </div>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,6 @@ permalink: "exhibitions/exhibition-{{ pagination.pageNumber }}/index.html"
                 {%  if ex.class === "Text" %}
                     <div class="press">
                             <article>
-                                <h2>Press Release</h2>
                                 {{ ex.content_html | safe }}
                             </article>
                     </div>

@@ -7,6 +7,12 @@ footer {
   background: var(--bg-color);
   padding-inline: var(--padding-m);
   z-index: 100;
+  @media screen and (min-width: 120em) {
+    width: 70vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-inline: 0;
+  }
   @media screen and (max-width: 40em) {
     padding-inline: var(--padding-s);
   }
