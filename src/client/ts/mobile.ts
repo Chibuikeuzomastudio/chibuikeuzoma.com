@@ -1,4 +1,4 @@
-let timeoutId: number | undefined = undefined;
+let timeoutId: number | undefined | ReturnType<typeof setTimeout> = undefined;
 const documentHeight = function () {
     clearTimeout(timeoutId);
     timeoutId= setTimeout(()=>{
