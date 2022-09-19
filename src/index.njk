@@ -29,6 +29,7 @@
                           {%- endfor -%}
                       </div>
                       <div class="artworks" data-mobile>
+                          {{ artworks.length | log }}
                           {%- for work in artworks -%}
                               <div class="work__wrapper">
                                   <div class="work">

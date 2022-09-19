@@ -34,7 +34,7 @@ const handleCV = function () {
   eventStart.forEach(event => {
     cv?.addEventListener(event, function () {
       if (!cvTextContainer) return;
-      cvTextContainer!.textContent = "Upon request";
+      cvTextContainer!.textContent = "Available upon request";
       cvTextContainer!.classList.add("over")
     });
   })

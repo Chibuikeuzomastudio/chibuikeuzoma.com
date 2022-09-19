@@ -9,12 +9,10 @@ const shuffle = (arr)=>{
 }
 
 module.exports = (arr, num = 3) => {
-    arr = shuffle(arr)
+    let a = shuffle([...arr])
 
-    const middleIndex = Math.ceil(arr.length/num);
-    const thirdHalf = arr.splice(-middleIndex)
-    const secondHalf = arr.splice(-middleIndex)
-    const firstHalf = arr
-
-    return [firstHalf, secondHalf, thirdHalf]
+    const middleIndex = Math.ceil(a.length/num);
+    const thirdHalf = a.splice(-middleIndex)
+    const secondHalf =a.splice(-middleIndex)
+    return [a, secondHalf, thirdHalf]
 }
